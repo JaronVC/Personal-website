@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7fff00">
+<title>worldview</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <a class="skip" href="#pageContent">skip to content</a>
+
+  <div class="frame">
+    <header class="cell head" id="topbar"></header>
+    <aside class="cell mascot" id="mascot"></aside>
+
+    <main class="main home-main" id="pageContent" tabindex="-1">
+      <section class="cell prose">
+        <h2 class="lbl">about:</h2>
+        <p>This is a personal project where I try to lay out every philosophical belief I have, along with all the reasons I believe it and my responses to the counterarguments. It's ambitious, but it's something I want to do while finishing my philosophy studies.</p>
+        <p>The idea is that anyone can pick a specific point and write their own response to it, and I'll consider it, give my own response, and add both to the page as a question-and-response. I haven't built that part yet.</p>
+      </section>
+
+      <section class="cell">
+        <h2 class="lbl">info:</h2>
+        <ul class="lines">
+          <li>start here: <b><a href="tree.html">[tree]</a></b></li>
+          <li>who i am: <b><a href="about.html">[about]</a></b></li>
+          <li>comments, corrections, disagreement: <b><a href="mailto:JaronVC@proton.me">[email]</a></b></li>
+          <li>feeling lucky: <b><a href="#" id="homeRandom">[random node]</a></b></li>
+        </ul>
+      </section>
+
+      <section class="cell">
+        <h2 class="lbl">topics:</h2>
+        <ul class="lines" id="homeTopics"></ul>
+      </section>
+
+      <section class="cell">
+        <h2 class="lbl">changelog:</h2>
+        <ul class="lines">
+          <li><b class="date">2026-10-22</b> -> new look, borrowed from <a href="https://insect.christmas/">insect.christmas</a></li>
+          <li><b class="date">2026-10-12</b> -> added nihilism, postmodernism, time, transgender identity, and suicide (mainländer + benatar)</li>
+          <li><b class="date">2026-10-12</b> -> added this home page and the about page</li>
+        </ul>
+      </section>
+
+      <section class="cell">
+        <h2 class="lbl">coming soon:</h2>
+        <ul class="lines">
+          <li>why we don't have free will, and why it doesn't matter</li>
+          <li>atheism</li>
+          <li>simulation theory, brain in a vat, and solipsism: what they change about daily life</li>
+          <li>evidence for climate change, and evidence that we can fix it</li>
+          <li>epistemology, metaphysics, meta-ethics <span class="dim">(not sure of my own views yet)</span></li>
+        </ul>
+      </section>
+
+      <section class="cell">
+        <h2 class="lbl">diagnostics:</h2>
+        <div id="diag" class="lines"></div>
+      </section>
+    </main>
+
+    <nav class="cell sidenav" id="navigation" aria-label="site"></nav>
+    <footer class="cell fxbar" id="fxbar"></footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="site.js"></script>
+  <script src="fx.js"></script>
+  <script src="home.js"></script>
+</body>
+</html>

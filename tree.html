@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7fff00">
+<title>worldview</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="tree">
+
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <a class="skip" href="#pageContent">skip to content</a>
+
+  <div class="frame">
+    <header class="cell head" id="topbar"></header>
+    <aside class="cell mascot" id="mascot"></aside>
+
+    <main class="main tree-main">
+      <section class="cell treecell" aria-label="argument tree">
+        <div class="top">
+          <h2 class="lbl">tree:</h2>
+          <button type="button" class="fxbtn" id="toggleObjections" aria-pressed="false">hide objections</button>
+        </div>
+        <nav id="sidebar" aria-label="argument tree"></nav>
+        <div class="legend">
+          <b>kinds:</b>
+          <span class="kv"># topic</span> <span class="kv">/ section</span> <span class="kv">+ argument</span> <span class="kv">! objection</span> <span class="kv">&lt; reply</span><br>
+          <b>verdicts:</b>
+          <span class="kv"><span class="vmark v-ok">[+]</span> accepted</span> <span class="kv"><span class="vmark v-warn">[?]</span> unresolved</span> <span class="kv"><span class="vmark v-bad">[x]</span> rejected</span><br>
+          <b>(n)</b> = nodes inside
+        </div>
+      </section>
+
+      <section class="cell scroll" id="pageContent" tabindex="-1">
+        <noscript>> this page needs javascript to draw the tree.</noscript>
+      </section>
+    </main>
+
+    <nav class="cell sidenav" id="navigation" aria-label="site"></nav>
+    <footer class="cell fxbar" id="fxbar"></footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="site.js"></script>
+  <script src="fx.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
