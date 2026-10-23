@@ -54,6 +54,7 @@ body.invert-mode {
 * { box-sizing: border-box; }
 
 html {
+  font-size: clamp(16px, calc(10px + 0.5vw), 24px);   /* grows on big screens */
   background: #000;
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><path d='M3 2 L3 18 L7.5 14 L11 21 L14 19.5 L10.5 13 L16.5 12.5 Z' fill='%237fff00' stroke='black' stroke-width='1.2'/></svg>") 3 2, auto;
 }
@@ -120,11 +121,14 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 14px 0; }
 /* ---------- frame: header / main / side nav / fx bar ---------- */
 
 .frame {
-  width: min(1180px, calc(100% - 24px));
-  margin: 16px auto 28px;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
   padding: 0 1px 1px 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 196px;
+  grid-template-columns: minmax(0, 1fr) 13rem;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   grid-template-areas:
     "head mascot"
     "main side"
@@ -137,14 +141,13 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 14px 0; }
   margin: 0 -1px -1px 0;
   padding: 10px 12px;
   min-width: 0;
+  position: relative;   /* keeps .sr-only labels inside the scrolling cell */
 }
 
 .head   { grid-area: head; }
 .mascot { grid-area: mascot; display: grid; place-items: center; padding: 6px; }
-.main   { grid-area: main; min-width: 0; }
-.sidenav { grid-area: side; max-height: 62vh; min-height: 360px; overflow: auto; }
-/* the home page grows with its content, so the side nav should stretch with it */
-body[data-page="home"] .sidenav { max-height: none; overflow: visible; }
+.main   { grid-area: main; min-width: 0; min-height: 0; }
+.sidenav { grid-area: side; min-height: 0; overflow: auto; }
 .fxbar  { grid-area: fx; }
 
 .lbl {
@@ -279,6 +282,7 @@ body[data-page="home"] .sidenav { max-height: none; overflow: visible; }
 .home-main {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: auto;
 }
 .home-main > .cell { margin: 0 -1px -1px 0; }
 
@@ -287,7 +291,7 @@ body[data-page="home"] .sidenav { max-height: none; overflow: visible; }
   margin: 0 0 1em;
   padding-left: 2ch;
   text-indent: -2ch;
-  max-width: 82ch;
+  max-width: 90ch;
   overflow-wrap: anywhere;
 }
 .prose p::before,
@@ -303,7 +307,7 @@ body[data-page="home"] .sidenav { max-height: none; overflow: visible; }
 .lines li::before { content: "> "; }
 .lines .why { display: block; opacity: 0.75; font-size: 0.82rem; text-indent: 0; }
 
-.scroll { max-height: 62vh; min-height: 320px; overflow: auto; }
+.scroll { min-height: 0; overflow: auto; }
 
 /* ---------- verdict marks ---------- */
 
@@ -316,9 +320,10 @@ body[data-page="home"] .sidenav { max-height: none; overflow: visible; }
 
 .tree-main {
   display: grid;
-  grid-template-columns: 292px minmax(0, 1fr);
+  grid-template-columns: 20rem minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
 }
-.tree-main > .cell { margin: 0 -1px -1px 0; max-height: 62vh; min-height: 360px; }
+.tree-main > .cell { margin: 0 -1px -1px 0; min-height: 0; overflow: auto; }
 
 .treecell { display: flex; flex-direction: column; }
 .treecell .top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
@@ -414,6 +419,9 @@ body[data-page="home"] .sidenav { max-height: none; overflow: visible; }
 
 @media (max-width: 900px) {
   .frame {
+    height: auto;
+    min-height: 100vh;
+    grid-template-rows: auto;
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
       "head mascot"
@@ -425,8 +433,10 @@ body[data-page="home"] .sidenav { max-height: none; overflow: visible; }
   #moth { font-size: 0.7rem; }
   .home-main { grid-template-columns: minmax(0, 1fr); }
   .tree-main { grid-template-columns: minmax(0, 1fr); }
-  .tree-main > .cell { max-height: none; min-height: 0; }
-  .treecell { max-height: 42vh !important; }
+  .tree-main { grid-template-rows: auto; }
+  .tree-main > .cell { overflow: visible; }
+  .home-main { overflow: visible; }
+  .treecell { max-height: 42vh; overflow: auto !important; }
   .scroll { max-height: none; min-height: 0; }
   .sidenav { max-height: none; min-height: 0; overflow: visible; }
   .topiclist { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
