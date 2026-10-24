@@ -6,8 +6,8 @@
 
   // ---------- edit these ----------
   const SITE = {
-    name: 'worldview',
-    pages: {
+    name: "Jaron's personal w(o)e(r)b(l)s(d)(v)i)t(e(w) ",
+        pages: {
       home:  { text: 'every belief has to show its work',
                frames: ['(o_o)', '(o_O)', '(o_o)', '(-_-)'] },
       tree:  { text: 'pick a branch, read the argument, then read the objection',
@@ -88,9 +88,7 @@
     top.append(
       el('h1', { class: 'logo' },
         el('a', { href: 'index.html' }, el('span', { id: 'rainbow', text: SITE.name })),
-        ' ', el('span', { class: 'glyph', 'aria-hidden': 'true', text: '}o{' })),
-      el('p', { class: 'sm' }, el('b', { class: 'slate', text: page + ' - status:' })),
-      el('p', { class: 'sm2', text: cfg.text }),
+        ' ', el('span', { class: 'glyph', 'aria-hidden': 'true', text: '∴' })),
       el('div', { class: 'mini' },
         el('div', { id: 'smiley', 'aria-hidden': 'true', text: cfg.frames[0] }),
         el('div', { id: 'pathbar', text: page === 'home' ? '~/' : '~/' + page }),
@@ -157,7 +155,6 @@
       el('hr'),
       el('h2', { class: 'lbl', text: 'random:' }), box,
       el('hr'),
-      el('a', { class: 'btn', href: 'mailto:JaronVC@proton.me', text: 'email' })
     );
   }
 
@@ -168,7 +165,8 @@
     bar.append(el('div', { class: 'row' },
       el('button', { type: 'button', class: 'fxbtn', id: 'toggleTime', 'aria-pressed': 'false', text: 'toggle clock' }),
       el('button', { type: 'button', class: 'fxbtn', id: 'toggleRain', 'aria-pressed': 'false', text: 'toggle rain' }),
-      el('button', { type: 'button', class: 'fxbtn', id: 'toggleTrail', 'aria-pressed': 'false', text: 'toggle }o{' }),
+      el('button', { type: 'button', class: 'fxbtn', id: 'toggleTrail', 'aria-pressed': 'false', text: 'toggle ∴' }),
+      el('a', { class: 'fxbtn', href: 'mailto:JaronVC@proton.me', text: 'email' }),
       el('button', { type: 'button', class: 'fxbtn', id: 'toggleInvert', 'aria-pressed': 'false', text: 'toggle 🌑' }),
       el('span', { id: 'systemClock', hidden: 'hidden' })
     ));

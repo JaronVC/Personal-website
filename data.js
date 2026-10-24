@@ -14,15 +14,14 @@ const TREE = {
       title: "Veganism",
       type: "topic",
       verdict: "accepted",
-      summary: "The moral case is decisive for me; health and environmental arguments are supporting, not load-bearing. One objection from my own debates is still unresolved.",
-      body: "Veganism is a philosophy and way of living which seeks to exclude — as far as is possible and practicable — all forms of exploitation of, and cruelty to, animals for food, clothing or any other purpose; and by extension, promotes the development and use of animal-free alternatives for the benefit of animals, humans and the environment. In dietary terms it denotes the practice of dispensing with all products derived wholly or partly from animals.\n\nThe short version of my own position: the ethical case does the real work here. The health and environmental arguments are real but I'd still hold this position without them. There is one objection — about whether ethical, sustainable meat consumption is possible — that I argued for myself in a debate and haven't fully resolved against my own vegan conclusion. I've left it in rather than papering over it.",
+      summary: "We should eat less meat because of animal suffering and the environment. I'm about 95% vegan myself",
+      body: "Veganism is a philosophy and way of living which seeks to exclude — as far as is possible and practicable — all forms of exploitation of, and cruelty to, animals for food, clothing or any other purpose; and by extension, promotes the development and use of animal-free alternatives for the benefit of animals, humans and the environment. In dietary terms it denotes the practice of dispensing with all products derived wholly or partly from animals.",
       children: [
         {
           id: "ethical",
           title: "Ethical arguments",
           type: "category",
-          summary: "TLDR: if animal suffering is bad, we shouldn't make them suffer so much.",
-          body: "Arguments about the moral status of animals and whether it's permissible to farm and kill them for food.",
+          summary: "It is immoral to ",
           children: [
             {
               id: "name-the-trait",
@@ -71,7 +70,7 @@ const TREE = {
               title: "Animal suffering",
               type: "argument",
               verdict: "accepted",
-              summary: "Factory-farmed animals have the capacity to suffer, and causing avoidable suffering for taste preference is hard to justify.",
+              summary: "If animal suffering is bad, we shouldn't make them suffer so much.",
               body: "The core argument: sentient animals can suffer, suffering is bad for the one who experiences it regardless of species, and modern animal agriculture causes enormous amounts of suffering that is avoidable — the vast majority of consumers have easy access to adequate plant-based alternatives. Causing avoidable suffering for a preference (taste, convenience, tradition) rather than a need is hard to justify once the capacity to suffer is granted.",
               children: [
                 {
