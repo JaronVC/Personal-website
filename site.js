@@ -1,5 +1,7 @@
 /* site.js — shared page chrome: header, mascot, side nav, toggle bar.
-   Needs data.js loaded first (for the topic links and the random-node box). */
+   Needs data.js loaded first (for the topic links and the random-node box).
+   Also loads extras.css and the footer music player (music.js + player.js)
+   on every page, so individual pages don't need extra tags. */
 
 (function () {
   'use strict';
@@ -13,9 +15,14 @@
       tree:  { text: 'pick a branch, read the argument, then read the objection',
                frames: ['  |  ', ' \\|  ', ' \\|/ ', '\\\\|//'] },
       about: { text: 'the person behind the arguments',
-               frames: ['(._.)', '(.-.)', '(.o.)', '(.-.)'] }
+               frames: ['(._.)', '(.-.)', '(.o.)', '(.-.)'] },
+      videos: { text: 'random clips from the void',
+               frames: ['[>  ]', '[ > ]', '[  >]', '[ > ]'] },
+      quotes: { text: 'words other people got right',
+               frames: ['"    ', '""   ', '"""  ', '""   '] }
     },
-    nav: [['home', 'index.html'], ['tree', 'tree.html'], ['about', 'about.html']]
+    nav: [['home', 'index.html'], ['tree', 'tree.html'], ['about', 'about.html'],
+          ['videos', 'videos.html'], ['quotes', 'quotes.html']]
   };
 
   const MOTH = [
@@ -188,4 +195,17 @@
       if (n) n.textContent = nowText || cfg.text;
     }
   };
+
+  // ---------- extras: shared stylesheet + footer music player ----------
+  if (!document.querySelector('link[href="extras.css"]')) {
+    document.head.append(el('link', { rel: 'stylesheet', href: 'extras.css' }));
+  }
+  if (!document.querySelector('script[src="player.js"]')) {
+    ['music.js', 'player.js'].forEach(src => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.async = false;          // keep order: playlist first, then the player
+      document.body.append(s);
+    });
+  }
 }());

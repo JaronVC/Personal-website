@@ -105,7 +105,7 @@
     for (let i = 0; i < 9; i++) {
       const s = document.createElement('span');
       s.className = 'moth';
-      s.textContent = '}o{';
+      s.textContent = '∴';
       s.style.opacity = String(0.9 - i * 0.09);
       wrap.append(s);
       items.push({ el: s, x: -100, y: -100 });

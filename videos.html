@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7fff00">
+<title>videos — worldview</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="extras.css">
+</head>
+<body data-page="videos">
+
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <a class="skip" href="#pageContent">skip to content</a>
+
+  <div class="frame">
+    <header class="cell head" id="topbar"></header>
+    <aside class="cell mascot" id="mascot"></aside>
+
+    <main class="main vid-main" id="pageContent" tabindex="-1">
+      <section class="cell" aria-label="video player">
+        <h2 class="lbl">player:</h2>
+        <div id="vidStage"></div>
+        <noscript>> this page needs javascript to play videos.</noscript>
+        <p class="small dim vid-tip">> keys: <b>r</b> random clip · <b>space</b> play/pause · <b>f</b> fullscreen · <b>m</b> sound · <b>←/→</b> seek. the music pauses while a clip plays.</p>
+      </section>
+    </main>
+
+    <nav class="cell sidenav" id="navigation" aria-label="site"></nav>
+    <footer class="cell fxbar" id="fxbar"></footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="site.js"></script>
+  <script src="fx.js"></script>
+  <script src="videolist.js"></script>
+  <script src="videos.js"></script>
+</body>
+</html>

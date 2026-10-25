@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7fff00">
+<title>quotes</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="extras.css">
+</head>
+<body data-page="quotes">
+
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <a class="skip" href="#pageContent">skip to content</a>
+
+  <div class="frame">
+    <header class="cell head" id="topbar"></header>
+    <aside class="cell mascot" id="mascot"></aside>
+
+    <main class="main cell scroll quote-main" id="pageContent" tabindex="-1">
+      <h2 class="lbl">quotes:</h2>
+      <p class="quote-intro">> Quotes I like.</p>
+      <div class="qbar" id="qBar"></div>
+      <div class="qlist" id="qList"></div>
+      <noscript>> this page needs javascript to show the quotes.</noscript>
+    </main>
+
+    <nav class="cell sidenav" id="navigation" aria-label="site"></nav>
+    <footer class="cell fxbar" id="fxbar"></footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="site.js"></script>
+  <script src="fx.js"></script>
+  <script src="quotelist.js"></script>
+  <script src="quotes.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+/* extras.css — styles for the extra pages (videos, quotes) and the 5-item nav.
+   Loaded automatically by site.js; uses the same variables as style.css. */
+
+/* nav: 2 columns, odd last item spans the full row */
+.navgrid { grid-template-columns: repeat(2, 1fr); }
+.navgrid .btn:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+/* ======================= retro buttons + sliders ======================= */
+
+.rt-btn {
+  font: inherit;
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--btn-bg);
+  color: var(--btn-ink);
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  line-height: 1.3;
+  min-width: 2.6rem;
+  text-shadow: 0 0 6px currentColor;
+  box-shadow: inset 0 0 0 1px #000, 3px 3px 0 var(--dim);
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.08s ease;
+}
+.rt-btn.big { font-weight: bold; padding: 6px 16px; }
+.rt-btn:hover, .rt-btn:focus-visible {
+  border-color: var(--date);
+  color: var(--date);
+  box-shadow: inset 0 0 8px rgba(255, 255, 0, 0.25), 3px 3px 0 var(--date);
+}
+.rt-btn:active { transform: translate(3px, 3px); box-shadow: inset 0 0 0 1px #000; }
+.rt-btn[aria-pressed="true"] { background: var(--sel-bg); color: var(--sel-ink); text-shadow: none; border-color: var(--sel-bg); }
+.rt-btn:disabled { opacity: 0.4; pointer-events: none; }
+
+.rt-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.3rem;
+  margin: 0;
+  background: transparent;
+}
+.rt-range::-webkit-slider-runnable-track {
+  height: 6px;
+  border: 1px solid var(--line);
+  background: linear-gradient(var(--ink), var(--ink)) 0 / var(--p, 100%) 100% no-repeat, var(--dim);
+}
+.rt-range::-moz-range-track { height: 6px; border: 1px solid var(--line); background: var(--dim); }
+.rt-range::-moz-range-progress { height: 6px; background: var(--ink); }
+.rt-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px; height: 18px; margin-top: -7px;
+  background: var(--date); border: 1px solid #000; border-radius: 0;
+  box-shadow: 0 0 6px var(--date);
+}
+.rt-range::-moz-range-thumb {
+  width: 8px; height: 16px;
+  background: var(--date); border: 1px solid #000; border-radius: 0;
+  box-shadow: 0 0 6px var(--date);
+}
+
+/* ======================= videos ======================= */
+
+.vid-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+
+  
+}
+.vid-main .mini.meta > div:not(.k) {
+  white-space: pre-line;
+}
+.vid-main > .cell { margin: 0 -1px -1px 0; min-height: 0; overflow: auto; }
+
+.vid-player { background: #000; }
+.vid-screen {
+  position: relative;
+  border: 1px solid var(--line);
+  background: #000;
+  box-shadow: 0 0 14px rgba(127, 255, 0, 0.18), inset 0 0 0 3px #000, inset 0 0 0 4px var(--dim);
+  padding: 4px;
+}
+.vid-screen video {
+  display: block;
+  width: 100%;
+  max-height: 64vh;
+  background: #000;
+  cursor: pointer;
+}
+.vid-screen::after {              /* faint scanlines */
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 3px);
+}
+
+/* control bar */
+.vid-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 8px;
+  border: 1px solid var(--line);
+  border-top: 0;
+  background: #010800;
+  box-shadow: inset 0 0 10px rgba(127, 255, 0, 0.18);
+}
+.vid-seek { flex: 1 1 10rem; min-width: 8rem; }
+.vid-vol { width: 5.5rem; }
+.vid-time {
+  flex: 0 0 auto;
+  min-width: 11.5ch;
+  padding: 2px 8px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+  color: #7fff00;
+  background: #000;
+  border: 1px solid var(--line);
+  text-shadow: 0 0 6px rgba(127, 255, 0, 0.7);
+}
+
+.vid-player:fullscreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px;
+}
+.vid-player:fullscreen .vid-screen video { max-height: calc(100vh - 6rem); }
+
+.vid-ctrl { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 10px; }
+.vid-hint { margin: 0 0 10px; color: var(--date); font-size: 0.82rem; }
+.vid-hint[hidden] { display: none; }
+.vid-main .mini.meta { margin-top: 10px; }
+.vid-tip { margin: 12px 0 0; }
+
+/* ======================= quotes ======================= */
+
+.quote-main { overflow: auto; }
+.quote-intro { margin: 0 0 10px; max-width: 80ch; }
+.qbar { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+
+.qlist { display: grid; gap: 18px; max-width: 80ch; padding-bottom: 12px; }
+
+.qblock {
+  position: relative;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  box-shadow: 5px 5px 0 var(--dim);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.qblock:hover { box-shadow: 7px 7px 0 var(--slate); transform: translate(-1px, -1px); }
+.qblock.hl { outline: 2px dashed var(--date); outline-offset: 4px; }
+
+.qhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 3px 12px;
+  border-bottom: 1px solid var(--dim);
+  font-size: 0.75rem;
+  color: var(--slate);
+  font-weight: bold;
+  text-transform: lowercase;
+}
+
+.qbody {
+  position: relative;
+  margin: 0;
+  padding: 22px 18px 18px 58px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.qbody::before {                  /* big opening mark */
+  content: "“";
+  position: absolute;
+  left: 12px;
+  top: 4px;
+  font-size: 4.2rem;
+  line-height: 1;
+  color: var(--slate);
+  opacity: 0.8;
+}
+
+.qauthor {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+  padding: 7px 12px;
+}
+.qauthor .k { color: var(--slate); font-weight: bold; }
+.qname { color: var(--date); font-size: 1.02rem; text-shadow: 0 0 6px rgba(255, 255, 0, 0.25); }
+body.invert-mode .qname { text-shadow: none; }
+.qsrc { opacity: 0.8; font-size: 0.85rem; }
+.qact { margin-left: auto; }
+
+@media (max-width: 900px) {
+  .vid-main { grid-template-rows: auto; }
+  .vid-main > .cell { overflow: visible; }
+  .qbody { padding-left: 48px; font-size: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rt-btn, .qblock { transition: none; }
+  .rt-btn:active, .qblock:hover { transform: none; }
+}
